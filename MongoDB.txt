@@ -1,0 +1,37 @@
+# creates a new database
+>use practicedb
+
+# 'db' returns the name of the current database
+>db
+
+# insert data or a document
+>db.collectionName.insertOne({key:value})
+
+# adding some zoo animals to our collection
+>db.zoo.insertOne({name: 'Cleo', species: 'jaguar', age: 12, hobbies: ['sleeping', 'eating', 'climbing']})
+
+>db.zoo.insertOne({name: 'Banzai', species: 'fox', age: 1, hobbies: ['sleeping', 'eating', 'playing']})
+
+# name og new collection is returned with 'show collections'
+>show collections
+result: zoo
+
+# view what's inside a collection with 'find()'
+>db.zoo.find()
+
+# Documents can also be deleted or dropped. The syntax to do so follows: 
+>db.collectionName.deleteOne({})
+
+# Example. remove Cleo from the database
+>db.zoo.deleteOne({name: 'Cleo'})
+
+# empty the collection at once. empty our pets collection.
+>db.zoo.remove({})
+
+# remove a collection all together
+>db.zoo.drop()
+
+# to remove the test database
+>db.dropDatabase()
+
+** Remember to quit both the server and the shell when you're done practicing. ***
